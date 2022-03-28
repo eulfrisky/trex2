@@ -10,7 +10,7 @@ var gameover,restart,gameoverimg,restartimg
 var dinheiro = 0
 var banco = 0
 var pulapula,morte,check
-var DAQUINAOPASSA
+
 function preload(){
 myFont = loadFont ("game_over.ttf")
   trex_running = loadAnimation("trex1.png","trex3.png","trex4.png");
@@ -69,7 +69,7 @@ function draw(){
     restart.visible = false
     gameover.visible = false
     banco = banco+1
-    
+    trex.y = World.mouseY
       if (trex.y < 175) {
       trex.y = 175  
       }
@@ -77,7 +77,12 @@ function draw(){
       if (eu.x<0){
         eu.x = eu.width/2
       }
-     trex.y = World.mouseY
+     if (banco>1000) {
+      if (frameCount %10 == 0) {
+       aiaiespinho(); 
+      }
+
+     }
      
     if (frameCount%30 == 0){
     aiaiespinho();
